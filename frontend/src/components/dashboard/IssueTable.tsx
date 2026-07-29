@@ -85,29 +85,29 @@ export default function IssueTable({ issues }: IssueTableProps) {
           </div>
           
           <select
-            className="select"
+            className="select bg-bg-color text-text-primary border border-border-color py-1 px-2 rounded-md focus:outline-none focus:border-primary-color"
             value={severityFilter}
             onChange={(e) => setSeverityFilter(e.target.value)}
           >
-            <option value="all">All Severities</option>
-            <option value="critical">Critical</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-            <option value="info">Info</option>
+            <option value="all" className="bg-bg-color text-text-primary">All Severities</option>
+            <option value="critical" className="bg-bg-color text-text-primary">Critical</option>
+            <option value="high" className="bg-bg-color text-text-primary">High</option>
+            <option value="medium" className="bg-bg-color text-text-primary">Medium</option>
+            <option value="low" className="bg-bg-color text-text-primary">Low</option>
+            <option value="info" className="bg-bg-color text-text-primary">Info</option>
           </select>
           
           <select
-            className="select"
+            className="select bg-bg-color text-text-primary border border-border-color py-1 px-2 rounded-md focus:outline-none focus:border-primary-color"
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
           >
-            <option value="all">All Categories</option>
-            <option value="security">Security</option>
-            <option value="bug">Bug</option>
-            <option value="performance">Performance</option>
-            <option value="maintainability">Maintainability</option>
-            <option value="style">Style</option>
+            <option value="all" className="bg-bg-color text-text-primary">All Categories</option>
+            <option value="security" className="bg-bg-color text-text-primary">Security</option>
+            <option value="bug" className="bg-bg-color text-text-primary">Bug</option>
+            <option value="performance" className="bg-bg-color text-text-primary">Performance</option>
+            <option value="maintainability" className="bg-bg-color text-text-primary">Maintainability</option>
+            <option value="style" className="bg-bg-color text-text-primary">Style</option>
           </select>
 
           <Button variant="secondary" onClick={handleExportCSV} className="text-sm px-3">

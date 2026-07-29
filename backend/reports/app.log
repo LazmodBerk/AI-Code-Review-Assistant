@@ -9,3 +9,6 @@
 2026-07-29 09:34:18.792 | INFO     | main:lifespan:20 - Shutting down
 2026-07-29 09:34:20.207 | INFO     | main:lifespan:17 - Starting AI Code Review Assistant
 2026-07-29 09:34:20.213 | INFO     | main:lifespan:20 - Shutting down
+2026-07-29 13:56:48.866 | INFO     | main:lifespan:17 - Starting AI Code Review Assistant
+2026-07-29 16:31:56.082 | WARNING  | app.services.analysis_service:run_analysis:66 - ruff failed on uploads\ffb6c414-5e9f-47f8-9669-1da695c6b9a2\05_simulate_qr_system.py: 'charmap' codec can't encode character '\u2705' in position 2046: character maps to <undefined>
+2026-07-29 16:31:56.086 | WARNING  | app.services.analysis_service:run_analysis:66 - bandit failed on uploads\ffb6c414-5e9f-47f8-9669-1da695c6b9a2\05_simulate_qr_system.py: 'charmap' codec can't encode character '\u2705' in position 2046: character maps to <undefined>
