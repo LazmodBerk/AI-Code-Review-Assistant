@@ -1,6 +1,6 @@
 # AI Code Review Assistant
 
-![AI Code Review Logo](frontend/public/vite.svg) <!-- Replace with actual screenshot later -->
+![AI Code Review Logo](frontend/public/logo.jpg)
 
 An advanced, modern AI-powered code review platform built with React & Vite. It provides real-time analysis, smart vulnerability detection, and a premium Glassmorphism dashboard for developers.
 
