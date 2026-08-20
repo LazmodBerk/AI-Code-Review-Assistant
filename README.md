@@ -1,20 +1,25 @@
-# AI Code Review Assistant
+# CodeLens — AI Code Review Assistant
 
 ![AI Code Review Logo](frontend/public/logo.jpg)
 
-An advanced, modern AI-powered code review platform built with React & Vite. It provides real-time analysis, smart vulnerability detection, and a premium Glassmorphism dashboard for developers.
+A full-stack, AI-assisted code review platform that combines deterministic static analysis with contextual LLM feedback. Review repositories, uploaded files, or live code and turn findings into an actionable engineering report.
 
 ## Features
 
 - **Real-Time Code Analysis**: Get instant AI feedback while writing code inside the browser with Monaco Editor integration.
 - **Repository Scanning**: Upload files or paste a GitHub URL to perform full-scale static analysis.
-- **Glassmorphism UI**: A highly polished, modern user interface built from scratch using custom CSS with smooth Framer Motion animations.
-- **Dynamic Dashboard**: View security vulnerabilities, performance metrics, and maintainability scores in beautiful charts.
+- **Seven-Dimension Scoring**: Track overall health, security, performance, maintainability, readability, architecture, and complexity.
+- **Professional Product Experience**: Responsive landing page, accessible dropdown navigation, mobile menu, interactive analysis preview, and light/dark themes.
+- **Dynamic Dashboard**: Explore prioritized vulnerabilities, quality metrics, language distribution, and AI recommendations.
+- **Portable Reports**: Export analysis results as PDF, Markdown, or HTML.
+- **Flexible AI Providers**: Use OpenAI, Ollama, LM Studio, or static-analysis-only mode.
 - **Developer Settings**: Seamless light/dark mode toggles, code editor configuration (Minimap, Word Wrap), and interactive account preferences.
 
 ## Technology Stack
 
-- **Frontend**: React 18, Vite
+- **Frontend**: React 18, TypeScript, Vite
+- **Backend**: FastAPI, SQLAlchemy, SQLite
+- **Analysis**: Ruff, Bandit, Radon, Python AST checks
 - **Routing**: React Router DOM
 - **Editor**: Monaco Editor (`@monaco-editor/react`)
 - **Animations**: Framer Motion
@@ -26,8 +31,8 @@ An advanced, modern AI-powered code review platform built with React & Vite. It 
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js 18 or higher
+- Python 3.11 or higher
 
 ### Installation
 
@@ -37,17 +42,27 @@ An advanced, modern AI-powered code review platform built with React & Vite. It 
    cd AI-Code-Review-Assistant/frontend
    ```
 
-2. Install dependencies:
+2. Configure and start the backend:
    ```bash
+   copy .env.example .env
+   python -m venv .venv
+   .venv\Scripts\activate
+   pip install -r backend/requirements.txt
+   python backend/main.py
+   ```
+
+3. In another terminal, install the frontend dependencies:
+   ```bash
+   cd frontend
    npm install
    ```
 
-3. Start the development server:
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-4. Build for production:
+5. Build for production:
    ```bash
    npm run build
    ```
@@ -55,6 +70,13 @@ An advanced, modern AI-powered code review platform built with React & Vite. It 
 ## Project Structure
 
 ```text
+backend/
+├── app/
+│   ├── analyzers/      # Static analysis adapters
+│   ├── api/            # REST and WebSocket endpoints
+│   ├── services/       # Analysis orchestration
+│   └── scoring/        # Quality scoring engine
+└── tests/              # Backend test suite
 frontend/
 ├── src/
 │   ├── api/            # API client configurations (axios)
@@ -68,6 +90,13 @@ frontend/
 │   └── main.tsx        # Application entry point
 ├── public/             # Static assets
 └── package.json        # Dependencies and scripts
+```
+
+## Validation
+
+```bash
+cd frontend && npm run build
+cd ../backend && pytest -q
 ```
 
 ## Contributing

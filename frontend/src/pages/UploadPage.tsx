@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Editor, useMonaco } from '@monaco-editor/react';
 import { Code2, Play, Settings, Upload, FileText, CheckCircle2, Github, X } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -13,7 +13,8 @@ import AIRecommendations from '../components/dashboard/AIRecommendations';
 import IssueTable from '../components/dashboard/IssueTable';
 
 export default function UploadPage() {
-  const [activeMode, setActiveMode] = useState<'upload' | 'code'>('upload');
+  const [searchParams] = useSearchParams();
+  const [activeMode, setActiveMode] = useState<'upload' | 'code'>(searchParams.get('mode') === 'code' ? 'code' : 'upload');
   const [code, setCode] = useState('// Paste your code here\n');
   const [language, setLanguage] = useState('javascript');
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +33,10 @@ export default function UploadPage() {
   const editorRef = useRef<any>(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setActiveMode(searchParams.get('mode') === 'code' ? 'code' : 'upload');
+  }, [searchParams]);
 
   const handleManualAnalyze = async () => {
     if (activeMode === 'code') {
